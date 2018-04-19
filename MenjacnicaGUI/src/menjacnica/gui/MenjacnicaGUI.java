@@ -182,6 +182,11 @@ public class MenjacnicaGUI extends JFrame {
 		addPopup(table, popupMenu);
 
 		JMenuItem menuItem = new JMenuItem("Dodaj kurs");
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				prikaziDodajGUI();
+			}
+		});
 		popupMenu.add(menuItem);
 
 		JMenuItem menuItem_1 = new JMenuItem("Obrisi kurs");
