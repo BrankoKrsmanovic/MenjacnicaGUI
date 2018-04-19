@@ -208,6 +208,11 @@ public class MenjacnicaGUI extends JFrame {
 		popupMenu.add(menuItem_1);
 
 		JMenuItem menuItem_2 = new JMenuItem("Izvrsi zamenu");
+		menuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				prikaziIzmenuGUI();
+			}
+		});
 		popupMenu.add(menuItem_2);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
