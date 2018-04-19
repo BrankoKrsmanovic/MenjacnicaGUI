@@ -146,6 +146,11 @@ public class MenjacnicaGUI extends JFrame {
 		contentPane.add(panel, BorderLayout.EAST);
 
 		JButton DodajKurs = new JButton("Dodaj kurs");
+		DodajKurs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				prikaziDodajGUI();
+			}
+		});
 		DodajKurs.setPreferredSize(new Dimension(120, 23));
 		panel.add(DodajKurs);
 
@@ -213,16 +218,21 @@ public class MenjacnicaGUI extends JFrame {
 		});
 	}
 
-	private void prikaziAboutProzor(){
-		JOptionPane.showMessageDialog(contentPane,
-				"Autor: Branko Krsmanovic , Verzija 1.0.0", "O programu Menjacnica",
+	private void prikaziAboutProzor() {
+		JOptionPane.showMessageDialog(contentPane, "Autor: Branko Krsmanovic , Verzija 1.0.0", "O programu Menjacnica",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
 	private void izlaz() {
 		int opcija = JOptionPane.showConfirmDialog(null, "Da li zelite da izadjete?", "Izlaz",
 				JOptionPane.YES_NO_CANCEL_OPTION);
 		if (opcija == JOptionPane.YES_OPTION)
 			System.exit(0);
+	}
+
+	private void prikaziDodajGUI() {
+		DodajKursGUI prozor = new DodajKursGUI(this);
+		prozor.setLocationRelativeTo(contentPane);
+		prozor.setVisible(true);
 	}
 }
