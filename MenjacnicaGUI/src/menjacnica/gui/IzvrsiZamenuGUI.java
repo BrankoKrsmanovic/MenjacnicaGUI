@@ -16,6 +16,8 @@ import javax.swing.JSlider;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class IzvrsiZamenuGUI extends JFrame {
 
@@ -179,6 +181,11 @@ public class IzvrsiZamenuGUI extends JFrame {
 	private JSlider getSlider() {
 		if (slider == null) {
 			slider = new JSlider();
+			slider.addChangeListener(new ChangeListener() {
+				public void stateChanged(ChangeEvent arg0) {
+					textFieldIznos.setText(slider.getValue() + "");
+				}
+			});
 			slider.setMajorTickSpacing(10);
 			slider.setPaintLabels(true);
 			slider.setPaintTicks(true);
